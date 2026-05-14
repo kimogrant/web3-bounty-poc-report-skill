@@ -7,7 +7,7 @@
 
 ## Human docs
 
-- Repository overview: `README.md`
+- Repository overview: `README.md` (maintainer-oriented peer patterns: [Peer patterns (for maintainers)](README.md#peer-patterns-for-maintainers))
 - Worked examples: `examples/`
 - Methodology links: `research/SOURCES.md`
 

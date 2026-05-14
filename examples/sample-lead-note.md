@@ -1,8 +1,9 @@
 # LEAD — DemoVault “weird share price” (downgraded)
 
 **Status:** LEAD / not submission-ready  
+**Hypothesis:** Share price rounding lets an attacker dilute LPs at deposit boundaries.  
 **Why stopped:** Kill signal — economic loop not closed (attacker PnL ≤ 0 after fees in mainnet fork at pinned block 19,000,000).  
-**What would change verdict:** Show positive net with liquidity depth from DEX pool X and include pinned fork + assertions.
+**Missing evidence:** Positive net PnL with liquidity depth from DEX pool X at the same block; remove or justify privileged `prank`.
 
 **Facts frozen**
 

@@ -16,6 +16,7 @@
 
 - **In-scope basis**: (chains, contracts, product lines)
 - **Delta vs known issues/docs**: (FAQ, audits—compare explicitly)
+- **Requires program confirmation** (optional; use when uncertain): bullet list of **questions only**—do not state unverified claims as facts
 
 ## Affected components
 
@@ -54,7 +55,7 @@
 
 ```bash
 export MAINNET_RPC_URL=...
-forge test --match-test test_Reproduce -vvv
+forge test --match-test test_reproduce_<scenario> -vvv
 ```
 
 - **Expected outcome**: how pass/fail or assertions demonstrate the bug

@@ -1,5 +1,7 @@
 # Five gates (run in order; each answer must be YES to proceed)
 
+This is the **submit-ready** pass: use after you have a draft PoC and narrative. For **early triage** (stop vs continue before investing in a long write-up), use [WEB3-KILL-SIGNALS.md](WEB3-KILL-SIGNALS.md) first—different purpose, complementary.
+
 **Gate 1 — Scope:** Is every touched contract/chain explicitly in the program’s active scope?
 
 **Gate 2 — Factuality:** Are addresses, proxy pattern, and compiler version verified against explorer or repo tag?

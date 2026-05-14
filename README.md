@@ -59,6 +59,19 @@ Ecosystem CLIs differ by vendor. If you use a tool such as `npx skills add owner
 - `examples/sample-lead-note.md` — downgraded LEAD format.
 - `examples/sample-forge-run-excerpt.md` — evidence presentation style.
 
+## Peer patterns (for maintainers)
+
+Open repos in this space often combine:
+
+| Pattern | Example repos | What to copy (legally: ideas, not prose) |
+|--------|----------------|----------------------------------------|
+| **Huge trigger lists** in `description` | [mariano-aguero/solidity-security-audit-skill](https://github.com/mariano-aguero/solidity-security-audit-skill) (`SKILL.md` + `references/`) | Many keywords so the agent auto-selects the skill; keep yours shorter to save tokens unless you fork their repo. |
+| **Orchestrated phases + bundles** | [sanbir/solidity-auditor-skills](https://github.com/sanbir/solidity-auditor-skills) (`solidity-auditor/SKILL.md`) | Explicit turns: discover → prepare → validate → report; heavy content stays in `references/`. |
+| **“Kill weak findings” + gates before writing** | [fr3akhacks/claude-bug-bounty](https://github.com/fr3akhacks/claude-bug-bounty) (`SKILL.md`) | Tables of discard patterns; a single north-star question; validation gates. |
+| **Monolith `SKILL.md`** | [fr3akhacks/claude-bug-bounty](https://github.com/fr3akhacks/claude-bug-bounty), [mariano-aguero/solidity-security-audit-skill](https://github.com/mariano-aguero/solidity-security-audit-skill) | Everything inline—powerful but expensive in context; this skill stays **thin main file + references**. |
+
+This repository follows **thin orchestrator + references** so `SKILL.md` stays usable inside normal agent context windows.
+
 ## Research folder?
 
 Small `research/` is **recommended** for methodology links only (`research/SOURCES.md`). It is **not** required for the agent: Cursor loads `skills/**/SKILL.md`, not `research/` by default.

@@ -17,3 +17,5 @@ Use this table **before** investing in a long report. If a row matches, default 
 | PoC uses privileged `prank` while report says “any user” | Narrative/PoC mismatch |
 
 **Rule:** If you cannot point to a **permissionless call sequence** (or explicitly scoped privileged role the program cares about) that moves value or auth, you do not yet have a bounty-grade story.
+
+If the row still looks plausible, freeze facts and build a PoC—then run the **five gates** in [TRIAGE-GATES.md](TRIAGE-GATES.md) before submission.

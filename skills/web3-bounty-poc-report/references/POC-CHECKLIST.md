@@ -10,7 +10,7 @@ Agents and human authors should verify every item before marking the submission 
 
 ## Test quality
 
-- [ ] Test names reflect intent (`test_Reproduce_*`)
+- [ ] Test names reflect intent (`test_reproduce_*`, snake_case after `test_`)
 - [ ] Assertions encode the faulty behavior, not only `console.log` output
 - [ ] `forge build` and `forge test` succeed on a clean clone (or document why extra steps are required)
 
