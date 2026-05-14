@@ -1,0 +1,16 @@
+# llms.txt — Web3 bounty skill hub
+
+## Canonical skill
+
+- Path: `skills/web3-bounty-poc-report/SKILL.md`
+- Supporting templates: `skills/web3-bounty-poc-report/references/*.md`
+
+## Human docs
+
+- Repository overview: `README.md`
+- Worked examples: `examples/`
+- Methodology links: `research/SOURCES.md`
+
+## Install hint for agents
+
+Copy `skills/web3-bounty-poc-report` into a consuming repo at `.cursor/skills/web3-bounty-poc-report`.
