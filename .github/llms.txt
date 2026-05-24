@@ -4,13 +4,18 @@
 
 - Path: `skills/web3-bounty-poc-report/SKILL.md`
 - Supporting templates: `skills/web3-bounty-poc-report/references/*.md`
+- Worked examples: `skills/web3-bounty-poc-report/examples/*.md`
 
 ## Human docs
 
-- Repository overview: `README.md` (maintainer-oriented peer patterns: [Peer patterns (for maintainers)](README.md#peer-patterns-for-maintainers))
-- Worked examples: `examples/`
-- Methodology links: `research/SOURCES.md`
+- Repository overview: `README.md` (English), `README.zh.md` (Chinese)
+- External pointers: `research/SOURCES.md`
+- Changelog: `skills/web3-bounty-poc-report/references/changelog.md`
 
 ## Install hint for agents
 
-Copy `skills/web3-bounty-poc-report` into a consuming repo at `.cursor/skills/web3-bounty-poc-report`.
+Run `./skill.sh install /path/to/project` or copy `skills/web3-bounty-poc-report/` (with `references/` and `examples/`) into `.cursor/skills/web3-bounty-poc-report/`.
+
+## Pairing
+
+After `evm-audit-recon` + `evm-audit-triage` (https://github.com/kimogrant/evm-audit-skill), use this skill for bounty PoC and report discipline.

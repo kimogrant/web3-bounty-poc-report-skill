@@ -1,7 +1,7 @@
 ---
 name: web3-bounty-poc-report
 description: >
-  End-to-end Web3 bug bounty protocol for triage, Foundry/Hardhat PoCs, fork discipline,
+  EVM-focused Web3 bug bounty protocol for triage, Foundry/Hardhat PoCs, fork discipline,
   severity framing, and reviewer-grade written reports (Immunefi, Cantina, Code4rena,
   Sherlock-style submissions). Use when the user drafts or reviews a vulnerability report,
   proof-of-concept, impact story, economic exploitability, contest submission, warden write-up,
@@ -14,7 +14,19 @@ description: >
 
 This skill packages a **submission pipeline**: kill weak ideas early, lock facts, ship a minimal PoC, then expand the narrative. It does **not** replace a program’s official rules—on conflict, follow the **project’s official scope and severity matrix**.
 
-Maintainer notes on how similar public skills are structured: root [README.md](../../README.md#peer-patterns-for-maintainers).
+Repository layout and maintainer notes: root [README.md](../../README.md). Version history: [references/changelog.md](references/changelog.md).
+
+---
+
+## Recommended pairing (audit → bounty)
+
+When the target codebase has not been structured yet, run skills in order:
+
+1. **`evm-audit-recon`** — scope pack under `audit-recon/` (addresses, trust boundaries, hypotheses). Repo: https://github.com/kimogrant/evm-audit-skill
+2. **`evm-audit-triage`** — CONFIRMED FINDING through four gates, or LEAD downgrade with frozen facts.
+3. **This skill** — fork-pinned PoC, evidence bar, five submit gates, Immunefi/C4-style report.
+
+Install all three into the same `.cursor/skills/` tree. `evm-audit-triage` stops at validated technical claims; this skill owns submission formatting and PoC hygiene.
 
 ---
 
@@ -133,8 +145,8 @@ Bounty workflow progress:
 
 **From the published GitHub repository**
 
-1. Copy `skills/web3-bounty-poc-report/` to your app repo as `.cursor/skills/web3-bounty-poc-report/` (create `.cursor/skills` if needed).
-2. Or from this monorepo root run: `./skill.sh install /path/to/target/project` (Bash: Git for Windows, WSL, macOS, or Linux).
+1. Copy `skills/web3-bounty-poc-report/` to your app repo as `.cursor/skills/web3-bounty-poc-report/` — include `references/` and `examples/` (create `.cursor/skills` if needed).
+2. Or from this monorepo root run: `./skill.sh install /path/to/target/project` (Bash: Git for Windows, WSL, macOS, or Linux). The script also copies `VERSION`.
 3. Reload the Cursor window so skills are discovered.
 
 **In Cursor**

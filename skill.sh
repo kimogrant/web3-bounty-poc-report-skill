@@ -4,22 +4,36 @@ set -euo pipefail
 
 ROOT="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 SKILLS_DIR="${ROOT}/skills"
+SKILL_NAME="web3-bounty-poc-report"
+SKILL_SRC="${SKILLS_DIR}/${SKILL_NAME}"
 
 usage() {
-  cat <<'EOF'
+  cat <<EOF
 Usage:
   ./skill.sh list
   ./skill.sh install /absolute/or/relative/path/to/target/project
 
-Copies skills/web3-bounty-poc-report -> <target>/.cursor/skills/web3-bounty-poc-report
+Installs: SKILL.md, references/, examples/, VERSION
+  -> <target>/.cursor/skills/${SKILL_NAME}/
 EOF
+}
+
+copy_skill() {
+  local dest="$1"
+  mkdir -p "$(dirname "${dest}")"
+  rm -rf "${dest}"
+  cp -R "${SKILL_SRC}" "${dest}"
+  cp "${ROOT}/VERSION" "${dest}/VERSION"
 }
 
 cmd="${1:-}"
 case "$cmd" in
   list)
-    echo "Skills under ${SKILLS_DIR}:"
-    find "${SKILLS_DIR}" -maxdepth 2 -mindepth 2 -name SKILL.md -print | sed "s#${SKILLS_DIR}/##;s#/SKILL.md##"
+    ver="$(tr -d '\r\n' < "${ROOT}/VERSION")"
+    echo "${SKILL_NAME} (v${ver})"
+    echo "  ${SKILL_SRC}/SKILL.md"
+    echo "  references/: $(find "${SKILL_SRC}/references" -name '*.md' | wc -l | tr -d ' ') files"
+    echo "  examples/: $(find "${SKILL_SRC}/examples" -maxdepth 1 -name '*.md' | wc -l | tr -d ' ') samples"
     ;;
   install)
     target="${2:-}"
@@ -28,11 +42,10 @@ case "$cmd" in
       exit 1
     fi
     abs_target="$(cd "$target" && pwd)"
-    dest="${abs_target}/.cursor/skills/web3-bounty-poc-report"
-    mkdir -p "${abs_target}/.cursor/skills"
-    rm -rf "${dest}"
-    cp -R "${SKILLS_DIR}/web3-bounty-poc-report" "${dest}"
+    dest="${abs_target}/.cursor/skills/${SKILL_NAME}"
+    copy_skill "${dest}"
     echo "Installed to ${dest}"
+    echo "Reload Cursor, then invoke: /${SKILL_NAME}"
     ;;
   *)
     usage
